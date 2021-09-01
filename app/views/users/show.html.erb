@@ -1,0 +1,14 @@
+<section class='user-profile'>
+  <div class='user-avatar'>
+    <% if @user.avatar.attached? %>
+      <%= image_tag @user.avatar, style: 'width: 200px;' %>
+    <% end %>
+  </div>
+
+  <div class='user-details'>
+  <h2>Hello, <%= @user.username %> !</h2>
+  <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+  <p><%= @user.phone_number %></p>
+  <p><%= @user.email %></p>
+  </div>
+</section>

@@ -1,0 +1,37 @@
+<h1>Profile Setting</h1>
+
+  <form>
+    <div class="mb-3">
+      <%= form_with(model: @user) do |f| %>
+      <%= render 'shared/form_error', object: @user %>
+      <%= f.label :avatar %>
+      <%= f.file_field :avatar %>
+    </div>
+    <div class="row mb-3">
+      <label for="username" class="col-sm-2 col-form-label">Username</label>
+      <div class="col-sm-10">
+        <input type="username" class="form-control" id="username">
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="first_name" class="col-sm-2 col-form-label">First name</label>
+      <div class="col-sm-10">
+        <input type="first_name" class="form-control" id="first_name">
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="last_name" class="col-sm-2 col-form-label">Last name</label>
+      <div class="col-sm-10">
+        <input type="last_name" class="form-control" id="last_name">
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="inputphone_number3" class="col-sm-2 col-form-label">Phone number</label>
+      <div class="col-sm-10">
+        <input type="phone_number" class="form-control" id="inputphone_number3">
+      </div>
+    </div>
+
+    <%= f.submit :Save, class: 'btn btn-primary' %>
+    <% end %>
+  </form>

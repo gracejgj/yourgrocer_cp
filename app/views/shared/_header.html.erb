@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg p-3 navbar-light" style="background-color: #FBFBFB;">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <a class="navbar-brand mt-2 mt-lg-0" href="#"><h4>Your Grocer</h4></a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <%= link_to 'Home', root_path, class: 'btn btn-outline-primary m-2' %>
+          </li>
+
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to 'Profile', user_path(current_user), class: 'btn btn-outline-primary m-2' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Setting', edit_user_path(current_user), class: 'btn btn-outline-primary m-2' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-primary m-2' %>
+          </li>
+
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-outline-primary m-2' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Login', new_user_session_path, class: 'btn btn-outline-primary m-2' %>
+          </li>
+            <li class="nav-item">
+          <%= link_to 'Admin', platform_home_path, class: 'btn btn-outline-primary m-2' %>
+          </li>
+              </ul>
+        <% end %>
+        <!-- Right elements -->
+        <div class="d-flex align-items-center">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+            <!-- Icon -->
+            <a class="text-reset me-3" href="#">
+              <i class="fas fa-shopping-cart"></i>
+            </a>
+        </div>
+    </div>
+  </nav>
