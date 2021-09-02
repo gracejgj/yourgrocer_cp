@@ -1,37 +1,47 @@
-<h1>Profile Setting</h1>
+<div class='container mt-5 p-3'>
+  <div class="card">
+    <div class="card-body">
+      <h3 class="feature-title">Profile Setting</h3>
 
-  <form>
-    <div class="mb-3">
       <%= form_with(model: @user) do |f| %>
       <%= render 'shared/form_error', object: @user %>
-      <%= f.label :avatar %>
-      <%= f.file_field :avatar %>
-    </div>
-    <div class="row mb-3">
-      <label for="username" class="col-sm-2 col-form-label">Username</label>
-      <div class="col-sm-10">
-        <input type="username" class="form-control" id="username">
-      </div>
-    </div>
-    <div class="row mb-3">
-      <label for="first_name" class="col-sm-2 col-form-label">First name</label>
-      <div class="col-sm-10">
-        <input type="first_name" class="form-control" id="first_name">
-      </div>
-    </div>
-    <div class="row mb-3">
-      <label for="last_name" class="col-sm-2 col-form-label">Last name</label>
-      <div class="col-sm-10">
-        <input type="last_name" class="form-control" id="last_name">
-      </div>
-    </div>
-    <div class="row mb-3">
-      <label for="inputphone_number3" class="col-sm-2 col-form-label">Phone number</label>
-      <div class="col-sm-10">
-        <input type="phone_number" class="form-control" id="inputphone_number3">
-      </div>
-    </div>
 
-    <%= f.submit :Save, class: 'btn btn-primary' %>
+      <div class="mb-3">
+        <%= f.label :avatar, class: "form-label" %>
+        <%= f.file_field :avatar, class:"form-control"  %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :username, class: "form-label" %>
+        <%= f.text_field :username, class:"form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :first_name, class: "form-label" %>
+        <%= f.text_field :first_name, class:"form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :last_name, class: "form-label" %>
+        <%= f.text_field :last_name, class:"form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :email, class: "form-label" %>
+        <%= f.text_field :email, class:"form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :phone_number, class: "form-label" %>
+        <%= f.text_field :phone_number, class:"form-control" %>
+      </div>
+
+      <div class="d-grid">
+        <%= f.submit 'Save', class: "btn btn-primary" %>
+      </div>
+
     <% end %>
-  </form>
+
+    </div>
+  </div>
+</div>
