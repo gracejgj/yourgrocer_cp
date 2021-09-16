@@ -1,9 +1,9 @@
-<div class='container my-3 '>
+<div class='container my-5'>
   <div class="card">
     <div class="card-body my-3 mx-3">
       <h3 class="feature-title">Create a new product</h3>
       <br>
-      <%= form_with(model: [:platform, @product], data: { controller: 'location', action: 'google-maps-callback@window->location.initMap' }) do |f| %>
+      <%= form_with(model: [:platform, @product]) do |f| %>
 
       <div class="mb-3">
         <%= f.label :photos, class: "form-label" %>
@@ -29,7 +29,7 @@
       </div>
 
       <div class="mb-3">
-        <%= f.label :available %>
+        <%= f.label :available, class: "form-label" %>
         <%= f.check_box :available %>
       </div>
 
@@ -41,46 +41,50 @@
 </div>
 </div>
 
-<div class="container my-3">
-  <div class="card">
-    <div class="card-body my-3 mx-3">
-      <div class="table-responsive">
-        <h3 class="feature-title">List of products</h3>
-        <table class="table table-hover">
-          <thead>
+<div class='container my-5'>
+<div class="card">
+  <div class="card-body my-3 mx-3">
+
+    <h3 class="feature-title">List of products</h3>
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Image</th>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price (RM)</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">#</th>
+            <th scope="col">#</th>
+          </tr>
+        </thead>
+        <tbody >
+          <% @products.each do |product| %>
             <tr>
-              <th scope="col">Image</th>
-              <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Description</th>
-              <th scope="col">Price (RM)</th>
-              <th scope="col">Quantity</th>
-              <th scope="col">#</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @products.each do |product| %>
-              <tr>
-                <td>
-                  <% if product.photos.attached? %>
-                    <% product.photos.each do |photo| %>
-                      <%= image_tag photo, style: 'width: 100px;'%></td>
-                    <td><%= link_to 'Remove', delete_photo_attachment_platform_product_path(photo), method: :delete, data: { confirm: 'Are you sure?' }%></td>
-                  <% end %>
+              <td>
+                <% if product.photos.attached? %>
+                  <% product.photos.each do |photo| %>
+                    <%= image_tag photo, style: 'width: 100px;'%></td>
+                  <td><%= link_to 'Remove', delete_photo_attachment_platform_product_path(photo), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-secondary'%></td>
                 <% end %>
-                <td><%= product.name %></td>
-                <td><%= product.description %></td>
-                <td><%= product.price_per_quantity %></td>
-                <td><%= product.quantity %></td>
-                <td><%= link_to edit_platform_product_path(product) do %>
-                <button class='btn btn-outline-secondary'>Edit</button></td>
               <% end %>
-              <br>
-              <% end %>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+              <td><%= product.name %></td>
+              <td><%= product.description %></td>
+              <td><%= product.price_per_quantity %></td>
+              <td><%= product.quantity %></td>
+              <td><%= link_to edit_platform_product_path(product) do %>
+                <button class='btn btn-outline-secondary'>Edit</button>
+              </td>
+            <% end %>
+            <td><%= link_to 'Delete', platform_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-secondary' %></td>
+            <br>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
   </div>
+</div>
+</div>
 </div>

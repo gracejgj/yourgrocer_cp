@@ -1,9 +1,56 @@
-<div class='container mt-5 p-3'>
+<div class='container my-5'>
   <div class="card">
-    <div class="card-body pr-3">
-      <h3 class="feature-title">Vendor Setting Page</h3>
+    <div class="card-body my-3 mx-3">
+      <div class="row">
+        <div class="col">
+          <h3 class="feature-title">Vendor Setting Page</h3>
+        </div>
+        <div class="col">
+          <%= link_to 'Show', platform_vendor_path(current_vendor), class: 'btn btn-outline-secondary float-end' %>
+        </div>
+      </div>
       <br>
+      <%= form_with(model: [:platform, @vendor], data: { controller: 'location', action: 'google-maps-callback@window->location.initMap' }) do |f| %>
 
-    </div>
+      <div class="mb-3">
+        <%= f.label :avatar, class: "form-label" %>
+        <%= f.file_field :avatar, class:"form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :name, class: "form-label" %>
+        <%= f.text_field :name, class:"form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :email, class: "form-label" %>
+        <%= f.text_field :email, class:"form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :phone_number, class: "form-label" %>
+        <%= f.text_field :phone_number, class:"form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :location, class: "form-label" %>
+        <%= f.text_field :location, data: { location_target: 'field' }, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.hidden_field :latitude, data: { location_target: 'latitude' }, class: "form-label" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.hidden_field :longitude, data: { location_target: 'longitude' }, class: "form-label" %>
+      </div>
+
+      <div class="d-grid">
+        <%= f.submit 'Save', class: "btn btn-primary" %>
+      </div>
+
+    <% end %>
+
   </div>
+</div>
 </div>
