@@ -5,6 +5,13 @@ body {
   font-family: 'Ubuntu', sans-serif;
 }
 
+#carouselExampleCaptions .carousel-item img {
+  object-fit: cover;
+  object-position: center;
+  height: 80vh;
+  overflow: hidden;
+}
+
 .description {
 	left: 50%;
 	position: absolute;

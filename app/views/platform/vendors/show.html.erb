@@ -18,9 +18,10 @@
       </div>
 
       <div class="mb-3">
-        <h2>Hello,<%= @vendor.name %>!</h2>
+        <h4>Hello, <%= @vendor.name %>!</h4>
       </div>
-      <div class="mb-3"><%= @vendor.email %></div>
+      <div class="mb-3">
+        <%= @vendor.email %></div>
       <div class="mb-3"><%= @vendor.phone_number %></div>
       <div class="mb-3"><%= @vendor.location %></div>
       <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&markers=size:small%7Ccolor:red%7C#{@vendor.latitude},#{@vendor.longitude}&key=#{Rails.application.credentials[Rails.env.to_sym][:GOOGLE_MAP_API]}", alt: "Map" %>
