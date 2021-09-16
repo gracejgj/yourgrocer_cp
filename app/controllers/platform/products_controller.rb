@@ -32,6 +32,6 @@ class Platform::ProductsController < PlatformController
 
   private
     def product_params
-      params.require(:product).permit(:title, :description, :price_per_quantity, :quantity, :available, photos: [])
+      params.require(:product).permit(:name, :description, :price_per_quantity, :quantity, :available, photos: [])
     end
 end

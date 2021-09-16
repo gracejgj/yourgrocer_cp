@@ -8,6 +8,17 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+import 'bootstrap';
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+import "controllers"
+
+window.initMap = function(...args) {
+  const event = document.createEvent('Event')
+  event.initEvent('google-maps-callbacks', true, true)
+  event.args = args
+  window.dispatchEvent(event)
+}

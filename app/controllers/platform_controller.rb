@@ -1,4 +1,4 @@
 class PlatformController < ApplicationController
-  before_action :authenticate_admin!
+  before_action :authenticate_vendor!
   layout 'platform'
 end

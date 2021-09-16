@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :stripes, only: [:create]
 
     namespace :platform do
-      get '/home', to: 'pages#host_home'
+      get '/home', to: 'pages#vendor_home'
 
       resources :dashboards, only: [:show]
       resources :vendors

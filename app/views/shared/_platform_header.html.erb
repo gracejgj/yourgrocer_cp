@@ -4,31 +4,31 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <a class="navbar-brand mt-2 mt-lg-0" href="#">Admin Dashboard</a>
+      <a class="navbar-brand mt-2 mt-lg-0" href="#">Vendor Dashboard</a>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <%= link_to 'Home', root_path, class: 'btn btn-outline-primary m-2'  %>
         </li>
 
-        <% if admin_signed_in? %>
+        <% if vendor_signed_in? %>
           <li class="nav-item">
-            <%= link_to 'Dashboard', platform_dashboard_path(current_admin), class: 'btn btn-outline-primary m-2'  %>
+            <%= link_to 'Dashboard', platform_dashboard_path(current_vendor), class: 'btn btn-outline-primary m-2'  %>
           </li>
           <li class="nav-item">
             <%= link_to 'Profile', platform_home_path, class: 'btn btn-outline-primary m-2'  %>
           </li>
           <li class="nav-item">
-            <%= link_to 'Setting', edit_platform_admin_path(current_admin), class: 'btn btn-outline-primary m-2'  %>
+            <%= link_to 'Setting', edit_platform_vendor_path(current_vendor), class: 'btn btn-outline-primary m-2'  %>
           </li>
           <li class="nav-item">
-            <%= link_to 'Logout', destroy_admin_session_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-primary m-2'  %>
+            <%= link_to 'Logout', destroy_vendor_session_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-primary m-2'  %>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to 'Sign Up', new_admin_registration_path, class: 'btn btn-outline-primary m-2'  %>
+            <%= link_to 'Sign Up', new_vendor_registration_path, class: 'btn btn-outline-primary m-2'  %>
           </li>
           <li class="nav-item">
-            <%= link_to 'Login', new_admin_session_path, class: 'btn btn-outline-primary m-2'  %>
+            <%= link_to 'Login', new_vendor_session_path, class: 'btn btn-outline-primary m-2'  %>
           </li>
         <% end %>
 

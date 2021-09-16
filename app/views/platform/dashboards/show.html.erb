@@ -1,1 +1,86 @@
-<h1>Host Dashboard</h1>
+<div class='container my-3 '>
+  <div class="card">
+    <div class="card-body my-3 mx-3">
+      <h3 class="feature-title">Create a new product</h3>
+      <br>
+      <%= form_with(model: [:platform, @product], data: { controller: 'location', action: 'google-maps-callback@window->location.initMap' }) do |f| %>
+
+      <div class="mb-3">
+        <%= f.label :photos, class: "form-label" %>
+        <%= f.file_field :photos, multiple: true, class:"form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :name, class: "form-label" %>
+        <%= f.text_field :name, class:"form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :description, class: "form-label" %>
+        <%= f.text_field :description, class:"form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :price_per_quantity, class: "form-label" %>
+        <%= f.text_field :price_per_quantity, class:"form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :quantity, class: "form-label" %>
+        <%= f.text_field :quantity, class:"form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :available %>
+        <%= f.check_box :available %>
+      </div>
+
+      <div class="d-grid">
+        <%= f.submit 'Create', class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
+
+<div class="container my-3">
+  <div class="card">
+    <div class="card-body my-3 mx-3">
+      <div class="table-responsive">
+        <h3 class="feature-title">List of products</h3>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Image</th>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Price (RM)</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">#</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @products.each do |product| %>
+              <tr>
+                <td>
+                  <% if product.photos.attached? %>
+                    <% product.photos.each do |photo| %>
+                      <%= image_tag photo, style: 'width: 100px;'%></td>
+                    <td><%= link_to 'Remove', delete_photo_attachment_platform_product_path(photo), method: :delete, data: { confirm: 'Are you sure?' }%></td>
+                  <% end %>
+                <% end %>
+                <td><%= product.name %></td>
+                <td><%= product.description %></td>
+                <td><%= product.price_per_quantity %></td>
+                <td><%= product.quantity %></td>
+                <td><%= link_to edit_platform_product_path(product) do %>
+                <button class='btn btn-outline-secondary'>Edit</button></td>
+              <% end %>
+              <br>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
