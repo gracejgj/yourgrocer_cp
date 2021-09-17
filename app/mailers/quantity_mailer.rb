@@ -1,9 +1,9 @@
 class OrderMailer < Applicationailer
 
-  def order_notification(product)
+  def quantity_notification(product)
     @order = order
     @user = @order.user
 
-    mail(to: @user.email, subject: "Your order summary")
+    mail(to: @vendor.email, subject: "Your stock is LOW! ")
   end
 end

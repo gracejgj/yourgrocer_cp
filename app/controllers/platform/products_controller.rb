@@ -1,7 +1,7 @@
 class Platform::ProductsController < PlatformController
 
   def create
-    @Product = current_vendor.products.create(product_params)
+    @product = current_vendor.products.create(product_params)
 
     if @product.save
       redirect_to platform_dashboard_path(current_vendor), notice: 'Product was successfully created.'
