@@ -14,6 +14,7 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+import "@fortawesome/fontawesome-free/js/all";
 import "controllers"
 
 window.initMap = function(...args) {
