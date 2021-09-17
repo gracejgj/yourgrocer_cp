@@ -36,7 +36,6 @@ class Platform::ProductsController < PlatformController
     redirect_to platform_dashboard_path(current_vendor), notice: 'Product was successfully deleted.'
   end
 
-
   private
     def product_params
       params.require(:product).permit(:name, :description, :price_per_quantity, :quantity, :available, photos: [])

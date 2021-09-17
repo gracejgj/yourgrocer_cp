@@ -56,7 +56,7 @@
             <th scope="col">Description</th>
             <th scope="col">Price (RM)</th>
             <th scope="col">Quantity</th>
-            <th scope="col">#</th>
+            <th scope="col">Stock</th>
             <th scope="col">#</th>
           </tr>
         </thead>
@@ -73,7 +73,15 @@
               <td><%= product.name %></td>
               <td><%= product.description %></td>
               <td><%= product.price_per_quantity %></td>
-              <td><%= product.quantity %></td>
+              <td> <%= product.quantity %> </td>
+              <td>
+                <% if print_quantity(product.quantity) %>
+                  <span class='in_quantity'>In Stock</span>
+                <% else %>
+                <button type="button" class="btn btn-danger">
+                  <span class='out_quantity'>Out of Stock</span></button></td>
+                <% end %>
+
               <td><%= link_to edit_platform_product_path(product) do %>
                 <button class='btn btn-outline-secondary'>Edit</button>
               </td>
