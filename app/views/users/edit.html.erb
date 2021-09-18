@@ -1,6 +1,30 @@
 <div class='container my-5'>
   <div class="card">
     <div class="card-body my-3 mx-3">
+      <h3 class="feature-title">User Profile
+      </h3>
+      <br>
+      <div class="mb-3">
+        <% if @user.avatar.attached? %>
+          <%= image_tag @user.avatar, style: 'width: 200px;' %>
+        <% end %>
+      </div>
+
+      <div class="mb-3">
+        <h2>Hello,<%= @user.username %>!</h2>
+      </div>
+      <div class="mb-3"><%= @user.first_name %><%= @user.last_name %></div>
+      <div class="mb-3"><%= @user.phone_number %>
+      </div>
+      <div class="mb-3"><%= @user.email %></div>
+
+    </div>
+  </div>
+</div>
+
+<div class='container my-5'>
+  <div class="card">
+    <div class="card-body my-3 mx-3">
       <h3 class="feature-title">Profile Setting</h3>
 
       <%= form_with(model: @user) do |f| %>
@@ -41,30 +65,6 @@
       </div>
 
     <% end %>
-
-  </div>
-</div>
-</div>
-
-<div class='container my-5'>
-<div class="card">
-  <div class="card-body my-3 mx-3">
-    <h3 class="feature-title">User Profile
-    </h3>
-    <br>
-    <div class="mb-3">
-      <% if @user.avatar.attached? %>
-        <%= image_tag @user.avatar, style: 'width: 200px;' %>
-      <% end %>
-    </div>
-
-    <div class="mb-3">
-      <h2>Hello,<%= @user.username %>!</h2>
-    </div>
-    <div class="mb-3"><%= @user.first_name %><%= @user.last_name %></div>
-    <div class="mb-3"><%= @user.phone_number %>
-    </div>
-    <div class="mb-3"><%= @user.email %></div>
 
   </div>
 </div>

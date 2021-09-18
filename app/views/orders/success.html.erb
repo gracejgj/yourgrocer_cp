@@ -1,32 +1,7 @@
-<section class='single-order-page'>
-  <div class='product-details'>
-    <h1>Product Details</h1>
-    <p>Vendor: <%= @order.vendor.email %></p>
-    <p>Destination: <%= @order.listing.title %></p>
-    <p>Location: <%= @order.listing.location %></p>
-  </div>
-
-  <div class='order-details'>
-    <h1>Order details</h1>
-    <p>Reference No. <%= @order.ref_no %></p>
-    <p>Check in: <%= @order.check_in_date %></p>
-    <p>Check out: <%= @order.check_out_date %></p>
-    <p>total: <%= @order.total %></p>
-    <p>status: <%= @order.status %></p>
-  </div>
-
-  <% if @order.status == 'pending' %>
-    <div class='order-payment'>
-      <%= form_with url: '/stripes', method: :post do |f| %>
-        <%= f.text_field :order_id, value: "#{@order.id}", hidden: true %>
-        <%= f.submit 'Confirm order'%>
-      <% end %>
+<div class='container my-5'>
+  <div class="card">
+    <div class="card-body my-3 mx-3">
+      <h1>Payment successful</h1>
     </div>
-  <% elsif @order.status == 'cancelled' %>
-    <p>This order has been cancelled.</p>
-  <% else %>
-    <button>
-      <%= link_to 'View payment details', listing_order_payment_details_path(@order.listing, @order)%>
-    </button>
-  <% end %>
-</section>
+  </div>
+</div>

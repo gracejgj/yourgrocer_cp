@@ -7,7 +7,6 @@ class WebhooksController < ApplicationController
     endpoint_secret = Rails.application.credentials[Rails.env.to_sym][:ENDPOINT_SECRET].to_s
 
     event = nil
-
     # Verify webhook signature and extract the event
     # See https://stripe.com/docs/webhooks/signatures for more information.
     begin

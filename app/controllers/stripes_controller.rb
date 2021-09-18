@@ -15,7 +15,7 @@ class StripesController < UsersController
                     unit_amount: (@order.total.to_f * 100).to_i,
                     currency: 'myr',
                     product_data: {
-                      name: @order.product.title
+                      name: @order.product.name
                     },
                   },
                   quantity: 1,
