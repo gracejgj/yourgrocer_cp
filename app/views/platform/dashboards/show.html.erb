@@ -24,8 +24,8 @@
         <%= f.text_field :price_per_quantity, class:"form-control" %>
       </div>
       <div class="mb-3">
-        <%= f.label :quantity, class: "form-label" %>
-        <%= f.text_field :quantity, class:"form-control" %>
+        <%= f.label :stock, class: "form-label" %>
+        <%= f.text_field :stock, class:"form-control" %>
       </div>
 
       <div class="mb-3">
@@ -74,13 +74,13 @@
               <td><%= product.name %></td>
               <td><%= product.description %></td>
               <td><%= product.price_per_quantity %></td>
-              <td> <%= product.quantity %> </td>
+              <td> <%= product.stock %> </td>
               <td>
-                <% if print_quantity(product.quantity) %>
-                  <span class='in_quantity'>In Stock</span>
+                <% if print_stock(product.stock) %>
+                  <span class='in_stock'>In Stock</span>
                 <% else %>
                 <button type="button" class="btn btn-danger">
-                  <span class='out_quantity'>Out of Stock</span></button></td>
+                  <span class='out_stock'>Out of Stock</span></button></td>
                 <% end %>
 
               <td><%= link_to edit_platform_product_path(product) do %>
