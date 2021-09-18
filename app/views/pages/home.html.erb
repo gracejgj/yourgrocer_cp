@@ -1,21 +1,29 @@
 <!-- Start Top Nav -->
 <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
-    <div class="container text-light">
-        <div class="w-100 d-flex justify-content-between">
-            <div>
-                <i class="fa fa-envelope mx-2"></i>
-                <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
-                <i class="fa fa-phone mx-2"></i>
-                <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
-            </div>
-            <div>
-                <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
-                <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
-                <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
-                <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
-            </div>
-        </div>
+  <div class="container text-light">
+    <div class="w-100 d-flex justify-content-between">
+      <div>
+        <i class="fa fa-envelope mx-2"></i>
+        <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+        <i class="fa fa-phone mx-2"></i>
+        <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+      </div>
+      <div>
+        <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored">
+          <i class="fab fa-facebook-f fa-sm fa-fw me-2"></i>
+        </a>
+        <a class="text-light" href="https://www.instagram.com/" target="_blank">
+          <i class="fab fa-instagram fa-sm fa-fw me-2"></i>
+        </a>
+        <a class="text-light" href="https://twitter.com/" target="_blank">
+          <i class="fab fa-twitter fa-sm fa-fw me-2"></i>
+        </a>
+        <a class="text-light" href="https://www.linkedin.com/" target="_blank">
+          <i class="fab fa-linkedin fa-sm fa-fw"></i>
+        </a>
+      </div>
     </div>
+  </div>
 </nav>
 
 <header class="page-header header">
@@ -30,9 +38,7 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="https://images.unsplash.com/photo-1458917524587-d3236cc8c2c8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80"
-        class="d-block w-100 img-fluid"
-        alt="...">
+      <img src="https://images.unsplash.com/photo-1458917524587-d3236cc8c2c8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80" class="d-block w-100 img-fluid" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h5>First slide label</h5>
         <p>Some representative placeholder content for the first slide.</p>
@@ -63,25 +69,41 @@
   </button>
 </div>
 
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-sm-4">
-      <h3>Column 1</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
-    <div class="col-sm-4">
-      <h3>Column 2</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
-    <div class="col-sm-4">
-      <h3>Column 3</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+<!-- Features of The Month -->
+<section class="container py-5">
+  <div class="row text-center pt-3">
+    <div class="col-lg-6 m-auto">
+      <h1 class="h1">Features of The Month</h1>
+      <p>
+        The row features the most selling products in this platform. The products name and images were fetched manually.
+      </p>
     </div>
   </div>
-</div>
+  <div class="row">
+    <div class="col-12 col-md-4 p-5 mt-3">
+      <%= image_tag 'products/img_1.jpg', style: 'height: 250px;', class:'img-fluid' %>
+      <h5 class="text-center mt-3 mb-3">Carrots</h5>
+      <p class="text-center">
+        <%= link_to 'Go Shop', user_path(current_user), class: 'btn btn-outline-dark m-2' %>
+      </p>
+    </div>
+    <div class="col-12 col-md-4 p-5 mt-3">
+      <%= image_tag 'products/img_2.jpg',style: 'height: 250px;', class:'img-fluid' %>
+      <h2 class="h5 text-center mt-3 mb-3">Broccoli</h2>
+      <p class="text-center">
+        <%= link_to 'Go Shop', user_path(current_user), class: 'btn btn-outline-dark m-2' %>
+      </p>
+    </div>
+    <div class="col-12 col-md-4 p-5 mt-3">
+      <%= image_tag 'products/img_3.jpg',style: 'height: 250px;', class:'img-fluid' %>
+      <h2 class="h5 text-center mt-3 mb-3">Tomatoes</h2>
+      <p class="text-center">
+        <%= link_to 'Go Shop', user_path(current_user), class: 'btn btn-outline-dark m-2' %>
+      </p>
+    </div>
+  </div>
+</section>
+<!-- End Categories of The Month -->
 
 <!-- Footer -->
 <footer class="bg-dark text-center text-white">
@@ -96,11 +118,11 @@
 
       <!-- Twitter -->
       <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/?lang=en" role="button">
-        <i class="fab fa-twitter fa"></i>
+        <i class="fab fa-twitter"></i>
 
         <!-- Instagram -->
         <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/" role="button">
-          <i class="fab fa-instagram fa-2"></i>
+          <i class="fab fa-instagram 2x"></i>
         </a>
 
         <!-- Google -->
@@ -134,7 +156,6 @@
               <!-- Email input -->
               <div class="form-outline form-white mb-4">
                 <input type="email" id="form5Example2" class="form-control"/>
-                <label class="form-label" for="form5Example2">Email address</label>
               </div>
             </div>
             <!--Grid column-->
@@ -156,7 +177,8 @@
       <!-- Section: Text -->
       <section class="mb-4">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam eum harum corrupti dicta, aliquam sequi voluptate quas.
+          Multi-vendor online shops, aka marketplaces. The idea behind multi-vendor sites is to allow vendor to create profiles and post their products for sale. When customers come to multi-vendor platform they can pick one item from e.g PicknPay and another
+          from e.g. Servay and it is all processed through the same shopping cart. This ecosystem of vendor selling in one place helps the customer find a more diverse set of products.
         </p>
       </section>
       <!-- Section: Text -->
