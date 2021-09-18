@@ -16,4 +16,8 @@ class Order < ApplicationRecord
     self.save
   end
 
+  def calculate_total
+    self.total = product.price_per_quantity * quantity
+    self.save
+  end
 end

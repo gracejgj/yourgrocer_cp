@@ -1,29 +1,72 @@
 <div class='container my-5'>
   <div class="card">
     <div class="card-body my-3 mx-3">
-      <h3 class="feature-title">User Profile </h3>
-      <br>
-      <div class="mb-3">
-        <% if @user.avatar.attached? %>
-          <%= image_tag @user.avatar, style: 'width: 200px;' %>
-        <% end %>
-      </div>
 
-      <div class="mb-3"><h2>Hello,<%= @user.username %>!</h2></div>
-      <div class="mb-3"><%= @user.first_name %><%= @user.last_name %></div>
-      <div class="mb-3"><%= @user.phone_number %> </div>
-      <div class="mb-3"><%= @user.email %></div>
+      <h3 class="feature-title">User Orders</h3>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">References No</th>
+              <th scope="col">Status</th>
+              <th scope="col">Price (RM)</th>
+            </tr>
+          </thead>
+          <tbody >
+            <% @orders.each do |order| %>
+              <tr>
+                <td><%= link_to "#{order.ref_no}", product_order_path(order.product, order) %></td>
+                <td>
+                  <%= order.status %></td>
+                <td>
+                  <%= order.total %></td>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
     </div>
   </div>
 </div>
 
-
 <div class='container my-5'>
   <div class="card">
     <div class="card-body my-3 mx-3">
-      <h3 class="feature-title">User Orders </h3>
-
+      <h3 class="feature-title">List of products</h3>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Image</th>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Price (RM)</th>
+              <th scope="col">Cart</th>
+            </tr>
+          </thead>
+          <tbody >
+            <% @products.each do |product| %>
+              <tr>
+                <td>
+                  <% if product.photos.attached? %>
+                    <% product.photos.each do |photo| %>
+                      <%= image_tag photo, style: 'width: 100px;'%></td>
+                  <% end %>
+                <% end %>
+                <td><%= product.name %></td>
+                <td><%= product.description %></td>
+                <td><%= product.price_per_quantity %></td>
+                <br>
+                <td><%= link_to product_path(product) do %>
+                  <button class='btn btn-outline-dark m-2'>Cart</button>
+                </td>
+              <% end %>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
+</div>
 </div>

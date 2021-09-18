@@ -12,10 +12,7 @@
 
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to 'Products', product_path(current_user), class: 'btn btn-outline-dark m-2' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'Profile', user_path(current_user), class: 'btn btn-outline-dark m-2' %>
+            <%= link_to 'Products', user_path(current_user), class: 'btn btn-outline-dark m-2' %>
           </li>
           <li class="nav-item">
             <%= link_to 'Setting', edit_user_path(current_user), class: 'btn btn-outline-dark m-2' %>
@@ -39,11 +36,12 @@
         <!-- Right elements -->
         <div class="d-flex align-items-center">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+
             <button class="btn btn-outline-dark" type="submit">Search</button>
-            <!-- Icon -->
+            <!-- Icon
             <a class="btn btn-outline-light btn-floating text-reset px-4 end" href="#">
               <i class="fas fa-shopping-cart fa-2x"></i>
-            </a>
+            </a> -->
         </div>
     </div>
   </nav>

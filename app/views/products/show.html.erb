@@ -12,28 +12,32 @@
               <th scope="col">Description</th>
               <th scope="col">Price (RM)</th>
               <th scope="col">Quantity</th>
-              <th scope="col">Add to Cart</th>
             </tr>
           </thead>
           <tbody >
-            <% @products.each do |product| %>
-              <tr>
-                <td>
-                  <% if product.photos.attached? %>
-                    <% product.photos.each do |photo| %>
-                      <%= image_tag photo, style: 'width: 100px;'%></td>
-                  <% end %>
+            <tr>
+              <td>
+                <% if @product.photos.attached? %>
+                  <% @product.photos.each do |photo| %>
+                    <%= image_tag photo, style: 'width: 100px;'%></td>
                 <% end %>
-                <td><%= product.name %></td>
-                <td><%= product.description %></td>
-                <td><%= product.price_per_quantity %></td>
-                <td><%= product.quantity %></td>
               <% end %>
+              <td><%= @product.name %></td>
+              <td><%= @product.description %></td>
+              <td><%= @product.price_per_quantity %></td>
               <br>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+              <td>
+                <%= form_with(model: [@product, @order]) do |f| %>
+                  <%= f.label :quantity %>
+                  <%= f.number_field :quantity, in: 1..30 %>
+                <%= f.submit 'Confirm' %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+
   </div>
+</div>
 </div>
