@@ -2,6 +2,9 @@
 
 Multi-vendor online shops, aka marketplaces. The idea behind multi-vendor sites is to allow vendor to create profiles and post their products for sale. When customers come to multi-vendor platform they can pick one item from e.g PicknPay and another from e.g. Servay and it is all processed through the same shopping cart. This ecosystem of vendor selling in one place helps the customer find a more diverse set of products. 
 
+# Project Management
+https://trello.com/b/qPHrg24D/capstone-project
+
 # Main Features
 
 * CRUD 
